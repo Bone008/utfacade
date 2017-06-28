@@ -18,7 +18,7 @@ macro(ut_get_customized_app_creator)
 		           POST_BUILD
 		           COMMAND cmake -E echo "Compiling Java files..."
 		           COMMAND cmake -E make_directory ${CMAKE_CURRENT_BINARY_DIR}/classes/ubitrack
-		           COMMAND ${Java_JAVAC_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/gensrc/ubitrack/*.java -d ${CMAKE_CURRENT_BINARY_DIR}/classes
+		           COMMAND ${Java_JAVAC_EXECUTABLE} \"${CMAKE_CURRENT_BINARY_DIR}/gensrc/ubitrack/\"*.java -d ${CMAKE_CURRENT_BINARY_DIR}/classes
 		           COMMAND cmake -E echo "Creating jar file..."
 		           COMMAND ${Java_JAR_EXECUTABLE} cvf ubitrack.jar -C ${CMAKE_CURRENT_BINARY_DIR}/classes ubitrack 
 	)
